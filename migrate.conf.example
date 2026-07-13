@@ -1,0 +1,18 @@
+# migrasql — configuration
+# Copy this file to 'migrate.conf' and adjust the values.
+
+# Database name (required; created automatically if it doesn't exist)
+DB_NAME="my_database"
+
+# User
+DB_USER="root"
+
+# Host and port — leave commented for local connection via Unix socket
+#DB_HOST="127.0.0.1"
+#DB_PORT="3306"
+
+# Manual client path (only if auto-detection fails)
+#DB_CLIENT="/opt/lampp/bin/mysql"
+
+# Migrations directory (default: ./migrations at the project root)
+#MIGRATIONS_DIR="./migrations"
