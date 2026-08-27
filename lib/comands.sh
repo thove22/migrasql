@@ -77,10 +77,12 @@ cmd_up() {
             echo -e "${RED}FAILED${NC}"
             log_error "Error details:"
             cat "$ERR_LOG" >&2
-            log_error "Note: for PROCEDURE/TRIGGER/FUNCTION use 'DELIMITER //' inside the file."
+            if grep -qiE 'CREATE (PROCEDURE|FUNCTION|TRIGGER)' "$file"; then
+                log_error "Hint: for PROCEDURE/TRIGGER/FUNCTION use 'DELIMITER //' inside the file."
+            fi
             exit 1
         fi
-    done
+     done
 
     echo ""
     log_ok "$done_count migration(s) applied successfully."
